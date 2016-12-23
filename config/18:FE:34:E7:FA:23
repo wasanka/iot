@@ -1,3 +1,4 @@
 {
-  glossary : "hi there"
+  version : 1,
+  binary : "esp8266_blink.bin"
 }
