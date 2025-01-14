@@ -1,0 +1,2 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1734378014299,3,HTTP Request,200,OK,Thread Group 1-1,,true,,188,186,1,1,http://localhost:8001/message?queue=test_queue&clientId=d602da64-318f-4c13-ab47-158500d1d41f,3,0,1

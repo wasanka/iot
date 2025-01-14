@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>Message Broker Console</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+    <script src="https://unpkg.com/hyperscript.org@0.9.13"></script>
+    <script src="static/js/app.js"></script>
+</head>
+<body>
+<div class='tableTitle'>Queue Status</div>
+<div id="queues"
+     style="text-align: center; width: 80%; /* Adjust width as needed */ margin: 0 auto; background-color: lightgray;">
+    <table border="1" width="100%">
+        <tr id="queueTableHeader">
+            <th>Queue</th>
+            <th>Type</th>
+        </tr>
+        <tbody id="queueTableBody">
+        </tbody>
+    </table>
+</div>
+<div class='tableTitle'>Members</div>
+<div id="members"
+     style="text-align: center; width: 80%; /* Adjust width as needed */ margin: 0 auto; background-color: lightgray;">
+    <table border="1" width="100%">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Consumers</th>
+            <th>Publishers</th>
+            <th>Memory</th>
+            <th>DB Size</th>
+        </tr>
+        <tbody id="memberTableBody">
+        </tbody>
+    </table>
+</div>
+<!--<button hx-get="status" hx-swap="outerHTML">-->
+<!--    Click Me-->
+<!--</button>-->
+<div id="memberDetails" class="card">
+
+</div>
+</body>
+</html>

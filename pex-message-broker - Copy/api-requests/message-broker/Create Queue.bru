@@ -1,0 +1,15 @@
+meta {
+  name: Create Queue
+  type: http
+  seq: 2
+}
+
+put {
+  url: {{BASE_URL}}/queue?name=test_queue
+  body: none
+  auth: none
+}
+
+params:query {
+  name: test_queue
+}

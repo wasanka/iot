@@ -1,0 +1,21 @@
+meta {
+  name: Get a message from queue
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{BASE_URL}}/message?queue=test_queue
+  body: none
+  auth: none
+}
+
+params:query {
+  queue: test_queue
+}
+
+body:json {
+  {
+    "a": "b"
+  }
+}

@@ -1,0 +1,94 @@
+meta {
+  name: Send Message to Queue
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{BASE_URL}}/message?queue=test_queue
+  body: text
+  auth: none
+}
+
+params:query {
+  queue: test_queue
+}
+
+headers {
+  PARAMETER_A: B
+}
+
+body:json {
+  Hello World
+}
+
+body:text {
+  <?xml version="1.0" encoding="UTF-8"?>
+  <Users>
+      <User>
+          <ID>1</ID>
+          <Name>John Doe</Name>
+          <Email>john.doe@example.com</Email>
+          <Address>
+              <Street>123 Main St</Street>
+              <City>Anytown</City>
+              <State>CA</State>
+              <Zip>12345</Zip>
+          </Address>
+          <Phone>+1-800-555-1234</Phone>
+          <Membership>Gold</Membership>
+      </User>
+      <User>
+          <ID>2</ID>
+          <Name>Jane Smith</Name>
+          <Email>jane.smith@example.com</Email>
+          <Address>
+              <Street>456 Elm St</Street>
+              <City>Othertown</City>
+              <State>TX</State>
+              <Zip>67890</Zip>
+          </Address>
+          <Phone>+1-800-555-5678</Phone>
+          <Membership>Silver</Membership>
+      </User>
+      <User>
+          <ID>3</ID>
+          <Name>Robert Johnson</Name>
+          <Email>robert.johnson@example.com</Email>
+          <Address>
+              <Street>789 Maple St</Street>
+              <City>Anycity</City>
+              <State>NY</State>
+              <Zip>10111</Zip>
+          </Address>
+          <Phone>+1-800-555-9012</Phone>
+          <Membership>Platinum</Membership>
+      </User>
+      <User>
+          <ID>4</ID>
+          <Name>Emily Davis</Name>
+          <Email>emily.davis@example.com</Email>
+          <Address>
+              <Street>321 Oak St</Street>
+              <City>Sometown</City>
+              <State>FL</State>
+              <Zip>54321</Zip>
+          </Address>
+          <Phone>+1-800-555-3456</Phone>
+          <Membership>Gold</Membership>
+      </User>
+      <User>
+          <ID>5</ID>
+          <Name>Michael Brown</Name>
+          <Email>michael.brown@example.com</Email>
+          <Address>
+              <Street>654 Pine St</Street>
+              <City>Thistown</City>
+              <State>WA</State>
+              <Zip>56789</Zip>
+          </Address>
+          <Phone>+1-800-555-7890</Phone>
+          <Membership>Bronze</Membership>
+      </User>
+  </Users>
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Acknowledge a Message
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{BASE_URL}}/message?queue=test_queue&messageId=8e8ee605-5e92-4831-8a82-dfe0fa3a91a5&clientId=1234
+  body: none
+  auth: none
+}
+
+params:query {
+  queue: test_queue
+  messageId: 8e8ee605-5e92-4831-8a82-dfe0fa3a91a5
+  clientId: 1234
+}
+
+body:json {
+  {
+    "a": "b"
+  }
+}

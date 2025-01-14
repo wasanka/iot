@@ -1,0 +1,81 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: message-broker
+spec:
+  serviceName: "message-broker"
+  replicas: 10
+  selector:
+    matchLabels:
+      app: message-broker
+  template:
+    metadata:
+      labels:
+        app: message-broker
+    spec:
+      containers:
+        - name: message-broker
+          image: wasanka2000/message-broker:latest
+          resources:
+            requests:
+              memory: "512Mi"
+            limits:
+              memory: "1024Mi"
+          ports:
+            - containerPort: 8000
+          env:
+          - name: CONSUMER_TIMEOUT
+            value: "10000"
+          - name: DB_CONSOLE_PORT
+            value: "8082"
+          - name: PUBLISHER_TIMEOUT
+            value: "15000"
+          - name: PENDING_ACK_TIMEOUT
+            value: "60000"
+          - name: BROKER_PORT
+            value: "8000"
+          - name: COMPLETED_MESSAGE_CLEANUP_INTERVAL
+            value: "30000"
+          - name: COMPLETED_MESSAGE_RETENSION_MINUTES
+            value: "10"
+          - name: MEMBER_COMMUNICATION_INTERVAL
+            value: "5000"
+          - name: STATUS_CHECK_INTERVAL
+            value: "5000"
+          - name: DB_FILE_NAME
+            value: "/data/broker-database"
+          volumeMounts:
+            - name: example-storage
+              mountPath: /data
+  volumeClaimTemplates:
+    - metadata:
+        name: example-storage
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 1Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: example-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: message-broker
+spec:
+  selector:
+    app: message-broker
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+  type: LoadBalancer
